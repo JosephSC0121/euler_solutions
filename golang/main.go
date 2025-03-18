@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	limit := 4000000
-	res := exercises.FibonacciSum(limit)
+	limit := 1
+	res := exercises.Triplet(limit)
 	fmt.Print(res)
 }
