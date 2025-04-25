@@ -1,4 +1,5 @@
 import math
+
 def Erastotenes_crib(n):
     is_prime = [True] * (n+1)
     is_prime[0] = is_prime[1] = False
@@ -15,6 +16,20 @@ def prime_number(n):
             return False
     return True
 
-
-if __name__ == "__main__":
-	print(Erastotenes_crib(10))
+def goldbach_conjeture():
+    primes = Erastotenes_crib(10000)
+    for i in range(10000):
+        if i % 2 != 0 and not prime_number(i):
+            found = False
+            for num in primes:
+                for mult in range(1, 100):
+                    goldbach_num = num + 2 * mult**2
+                    if i == goldbach_num:
+                        found = True
+                        break
+                if found:
+                    break
+            if not found:
+                return print(i)
+                        
+goldbach_conjeture()
